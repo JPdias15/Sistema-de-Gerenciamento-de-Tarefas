@@ -1,0 +1,25 @@
+
+create database pweb;
+
+use pweb;
+
+
+create table usuario(
+    id integer primary key auto_increment,
+    nome varchar(60) not null,
+    login varchar(60) not null unique key,
+    senha varchar(30) not null
+);
+
+
+create table tarefa(
+    id integer primary key auto_increment,
+    titulo varchar(50) not null,
+    descricao text not null,
+    status varchar(20) not null,
+    id_usuario integer,
+    foreign key (id_usuario) references usuario (id)
+);
+
+
+insert into usuario (login, senha, nome) values ('joao', '123', 'João Pedro');
